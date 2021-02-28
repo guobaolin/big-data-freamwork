@@ -34,8 +34,17 @@ public class WordCountDriver {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 
-        FileInputFormat.setInputPaths(job, "D:\\wordcount\\input");
-        FileOutputFormat.setOutputPath(job, new Path("D:\\wordcount\\output"));
+        String basePath = "/Users/guobaolin/Documents/project/person/github/big-data-freamwork";
+
+//        String inputPath = basePath + "/hadoop/hadoop-simple/src/file/input/";
+//        String outputPath = basePath + "/hadoop/hadoop-simple/src/file/output/";
+
+        // hdfs path
+        String inputPath = "hdfs://node01:8020/wordcount/input/";
+        String outputPath = "hdfs://node01:8020/wordcount/output/";
+
+        FileInputFormat.setInputPaths(job, inputPath);
+        FileOutputFormat.setOutputPath(job, new Path(outputPath));
 
         boolean b = job.waitForCompletion(true);
 
