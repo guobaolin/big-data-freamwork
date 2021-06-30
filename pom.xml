@@ -11,6 +11,7 @@
         <module>hadoop</module>
         <module>spark</module>
         <module>flink</module>
+        <module>hive</module>
     </modules>
     <packaging>pom</packaging>
 
